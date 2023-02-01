@@ -1,7 +1,7 @@
 import React from 'react';
 import { saveAs } from 'file-saver'
 import { FaDownload } from 'react-icons/fa';
-
+import { WhatsappIcon, WhatsappShareButton } from "react-share";
 
 const Gif = ({url, username}) => {
 const downloadImage = () => {
@@ -11,7 +11,14 @@ return (
   <>
   <li className="gif-wrap">
     <img src={url} alt="" />
-    <button onClick={downloadImage}><FaDownload/></button>
+    <WhatsappShareButton
+            url={url}
+            title={username}
+            separator=":: "
+             >
+            <WhatsappIcon size={32} round />
+          </WhatsappShareButton>
+    <button onClick={downloadImage}><FaDownload/> </button>
   </li>
   
   </>
